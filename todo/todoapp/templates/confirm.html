@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete "{{ task.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+        
+    </form>
+    <p><a href="{% url 'list' %}">Cancel</a></p>
+
+    <style>
+        form{
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+            font-size: 1.5em;
+        }
+        p{
+            text-align: center;
+            font-size: 1.2em;
+        }
+        button{
+        width: 8rem;
+        height: 3.5rem;
+        padding: 10px;
+        justify-self: center;
+        margin-top: 20px;
+        text-align: center;
+        background-color: #0c59ab;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #fff;
+        }
+        p a{
+            color:  rgb(179, 207, 231);
+        }
+        p a:hover{
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}

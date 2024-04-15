@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h2>Task List</h2>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }}</li>
+            <a href="{% url 'details' pk=task.id %}"><button>Details</button></a>
+            <a href="{% url 'delete' pk=task.id %}"><button>Delete</button></a>
+        {% empty %}
+            <li>No tasks available.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create' %}">Create New Task</a>
+
+    <style>
+        h2{
+            font-size: 2em;
+        }
+        li{
+            font-size: 1.5em;
+            padding: 10px;
+        }
+        a{
+            font-size: 1.25em;
+        }
+
+        a:hover{
+            text-decoration: underline;
+        }
+        button{
+        width: 6rem;
+        height: 2.5rem;
+        padding: 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+        text-align: center;
+        background-color: #0c59ab;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #fff;
+
+        }
+
+    </style>
+{% endblock %}
